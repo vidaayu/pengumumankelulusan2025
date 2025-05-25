@@ -48,18 +48,12 @@
         const nama = data.nama;
         const lulus = data.lulus;
 
-        if (lulus) {
-          hasilDiv.innerHTML = `
-            <div class="text-green-600">
-              🎉 SELAMAT, <strong>${nama}</strong>!<br>
-              Anda dinyatakan <strong>LULUS</strong>.
-            </div>`;
-        } else {
-          hasilDiv.innerHTML = `
-            <div class="text-red-600">
-              ❌ Mohon maaf, <strong>${nama}</strong>.<br>
-              Anda <strong>TIDAK LULUS</strong>.
-            </div>`;
+               if (dataKelulusan[nisn]) {
+          const { nama, lulus } = dataKelulusan[nisn];
+          hasilDiv.innerHTML = lulus
+            ? `<div class="text-green-600">🎉 SELAMAT, <strong>${nama}</strong>!<br>Anda dinyatakan <strong>LULUS</strong>.</div>`
+            : `<div class="text-red-600">❌ Mohon maaf, <strong>${nama}</strong>.<br>Anda <strong>TIDAK LULUS</strong>.</div>`;
+
         }
       } else {
         hasilDiv.innerHTML = `<span class="text-gray-600">NISN tidak ditemukan. Silakan periksa kembali.</span>`;
