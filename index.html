@@ -99,31 +99,6 @@
       color: #c0392b;
     }
 
-    .lulus-list {
-      margin-top: 30px;
-    }
-    .lulus-list h4 {
-      margin-bottom: 12px;
-      font-weight: 600;
-      border-bottom: 2px solid #3498db;
-      padding-bottom: 5px;
-      color: #2980b9;
-    }
-    .lulus-list ul {
-      list-style-type: none;
-      padding-left: 0;
-      max-height: 140px;
-      overflow-y: auto;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-    }
-    .lulus-list ul li {
-      padding: 8px 12px;
-      border-bottom: 1px solid #eee;
-      font-weight: 500;
-      color: #34495e;
-    }
-
     footer {
       background: rgba(255,255,255,0.9);
       color: #666;
@@ -148,11 +123,6 @@
       <button onclick="cekKelulusan()">Cek Kelulusan</button>
       <div id="result" class="result"></div>
     </section>
-
-    <section class="lulus-list" id="lulusSection" style="display:none;">
-      <h4>Daftar Siswa yang Lulus:</h4>
-      <ul id="lulusList"></ul>
-    </section>
   </main>
 
   <footer>
@@ -176,18 +146,12 @@
       { nisn: "3131299850", nama: "BAGUS ARYA SENO" }
     ];
 
-    const lulusSection = document.getElementById('lulusSection');
-    const lulusListEl = document.getElementById('lulusList');
-
-    function tampilkanDaftarLulus() {
-      lulusListEl.innerHTML = '';
-      siswaLulus.forEach(siswa => {
-        const li = document.createElement('li');
-        li.textContent = `${siswa.nisn} - ${siswa.nama}`;
-        lulusListEl.appendChild(li);
-      });
-      lulusSection.style.display = 'block';
-    }
+    const siswaTidakLulus = [
+      { nisn: "1234567890", nama: "VIDA" },
+      { nisn: "000", nama: "SITI BAROKAH" },
+      { nisn: "0123456789", nama: "ALDO FAHREZA" },
+      { nisn: "0136987412", nama: "NADIRA SYIFA AZZAHRA" }
+    ];
 
     function cekKelulusan() {
       const input = document.getElementById('nisnInput').value.trim();
@@ -196,20 +160,21 @@
       if (input === "") {
         resultEl.textContent = "Silakan masukkan NISN terlebih dahulu.";
         resultEl.className = "result tidak";
-        lulusSection.style.display = 'none';
         return;
       }
 
-      const siswa = siswaLulus.find(s => s.nisn === input);
+      const siswaL = siswaLulus.find(s => s.nisn === input);
+      const siswaTL = siswaTidakLulus.find(s => s.nisn === input);
 
-      if (siswa) {
-        resultEl.textContent = `Selamat, NISN ${input} (${siswa.nama}) dinyatakan LULUS! 🎉`;
+      if (siswaL) {
+        resultEl.textContent = `Selamat, NISN ${input} (${siswaL.nama}) dinyatakan LULUS! 🎉`;
         resultEl.className = "result lulus";
-        tampilkanDaftarLulus();
-      } else {
-        resultEl.textContent = `Maaf, NISN ${input} tidak ditemukan atau dinyatakan TIDAK LULUS.`;
+      } else if (siswaTL) {
+        resultEl.textContent = `Mohon maaf, NISN ${input} (${siswaTL.nama}) dinyatakan TIDAK LULUS.`;
         resultEl.className = "result tidak";
-        lulusSection.style.display = 'none';
+      } else {
+        resultEl.textContent = `NISN ${input} tidak ditemukan dalam data siswa.`;
+        resultEl.className = "result tidak";
       }
     }
   </script>
