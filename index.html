@@ -195,16 +195,7 @@
   const lulusSection = document.getElementById('lulusSection');
   const lulusListEl = document.getElementById('lulusList');
 
-  // Bersihkan dan tampilkan daftar siswa yang lulus (dipanggil setelah submit)
-  function tampilkanDaftarLulus() {
-    lulusListEl.innerHTML = '';
-    siswaLulus.forEach(siswa => {
-      const li = document.createElement('li');
-      li.textContent = `${siswa.nisn} - ${siswa.nama}`;
-      lulusListEl.appendChild(li);
-    });
-    lulusSection.style.display = 'block';
-  }
+  
 
   // Fungsi cek kelulusan
   function cekKelulusan() {
