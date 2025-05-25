@@ -32,7 +32,7 @@
     &copy; SDN Kauman 2025
   </footer>
 
-  <script src="dataKelulusan.js"></script>
+  <script src="data_kelulusan.js"></script>
   <script>
     function cekKelulusan() {
       const nisn = document.getElementById("nisn").value.trim();
@@ -43,8 +43,8 @@
         return;
       }
 
-      if (nisn in dataKelulusan) {
-        const data = dataKelulusan[nisn];
+      if (nisn in data_kelulusan) {
+        const data = data_kelulusan[nisn];
         const nama = data.nama;
         const lulus = data.lulus;
 
