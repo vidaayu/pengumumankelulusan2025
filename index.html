@@ -10,64 +10,83 @@
   body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-    color: #fff;
+    background: linear-gradient(135deg, #a8c0ff 0%, #f2f9ff 100%);
+    color: #333;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
   }
   header {
-    padding: 40px 20px 20px 20px;
+    padding: 25px 20px 15px 20px;
     text-align: center;
-    background: rgba(0,0,0,0.3);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  header img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 12px;
+    object-fit: contain;
   }
   header h1 {
-    margin: 0 0 10px;
+    margin: 0 0 8px;
     font-weight: 700;
-    font-size: 2.4rem;
+    font-size: 2.2rem;
+    color: #2c3e50;
   }
   header h2 {
-    margin: 5px 0;
-    font-weight: 500;
-    font-size: 1.4rem;
+    margin: 3px 0;
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: #34495e;
   }
   header h3 {
-    margin: 5px 0 0;
+    margin: 3px 0 0;
     font-weight: 400;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-style: italic;
+    color: #566573;
   }
 
   main {
     flex: 1;
     padding: 20px;
     max-width: 480px;
-    margin: 0 auto;
-    background: rgba(255 255 255 / 0.1);
+    margin: 30px auto;
+    background: #fff;
     border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
   }
 
   .lulus-list {
-    margin-bottom: 30px;
+    margin-top: 30px;
   }
   .lulus-list h4 {
     margin-bottom: 12px;
     font-weight: 600;
-    border-bottom: 2px solid #fff;
+    border-bottom: 2px solid #3498db;
     padding-bottom: 5px;
+    color: #2980b9;
   }
   .lulus-list ul {
     list-style-type: none;
     padding-left: 0;
     max-height: 140px;
     overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
   }
   .lulus-list ul li {
-    padding: 6px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding: 8px 12px;
+    border-bottom: 1px solid #eee;
     font-weight: 500;
+    color: #34495e;
+  }
+  .lulus-list ul li:last-child {
+    border-bottom: none;
   }
 
   .cek-container {
@@ -77,19 +96,20 @@
     padding: 12px 15px;
     font-size: 1rem;
     border-radius: 8px;
-    border: none;
+    border: 1.8px solid #3498db;
     outline: none;
     width: 100%;
     max-width: 280px;
     margin-bottom: 15px;
-    transition: box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
   }
   input[type="text"]:focus {
-    box-shadow: 0 0 8px #fff;
+    box-shadow: 0 0 8px #3498db;
+    border-color: #2980b9;
   }
   button {
-    background: #fff;
-    color: #2575fc;
+    background: #3498db;
+    color: #fff;
     border: none;
     padding: 12px 28px;
     border-radius: 8px;
@@ -99,7 +119,7 @@
     transition: background-color 0.3s ease;
   }
   button:hover {
-    background: #f0f0f0;
+    background: #2980b9;
   }
 
   .result {
@@ -108,19 +128,20 @@
     font-weight: 700;
   }
   .result.lulus {
-    color: #b2ff59; /* light green */
+    color: #27ae60; /* hijau */
   }
   .result.tidak {
-    color: #ff5252; /* red */
+    color: #c0392b; /* merah */
   }
 
   footer {
-    background: rgba(0,0,0,0.25);
-    color: #ddd;
+    background: rgba(255,255,255,0.9);
+    color: #666;
     text-align: center;
     padding: 15px 10px;
     font-size: 0.9rem;
     font-weight: 500;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.05);
   }
 
   /* Scrollbar style for lulus list */
@@ -128,30 +149,32 @@
     width: 8px;
   }
   .lulus-list ul::-webkit-scrollbar-thumb {
-    background-color: rgba(255,255,255,0.3);
+    background-color: #a1c4fd;
     border-radius: 4px;
   }
 </style>
 </head>
 <body>
 <header>
+  <!-- Ganti src di bawah dengan link logo sekolahmu -->
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/School_font_awesome.svg/1200px-School_font_awesome.svg.png" alt="Logo SDN Kauman" />
   <h1>PENGUMUMAN KELULUSAN SISWA KELAS 6</h1>
   <h2>SDN KAUMAN</h2>
-  <h3>TAHUN PELAJARAN 2024/2025</h3>
+  <h3>TAHUN PELAJARAN 2025/2026</h3>
 </header>
 
 <main>
-  <section class="lulus-list">
-    <h4>Daftar Siswa yang Lulus:</h4>
-    <ul id="lulusList">
-      <!-- Data siswa yang lulus akan muncul di sini -->
-    </ul>
-  </section>
-
   <section class="cek-container">
     <input type="text" id="nisnInput" placeholder="Masukkan NISN Anda..." maxlength="10" />
     <button onclick="cekKelulusan()">Cek Kelulusan</button>
     <div id="result" class="result"></div>
+  </section>
+
+  <section class="lulus-list" id="lulusSection" style="display:none;">
+    <h4>Daftar Siswa yang Lulus:</h4>
+    <ul id="lulusList">
+      <!-- Data siswa yang lulus akan muncul di sini -->
+    </ul>
   </section>
 </main>
 
@@ -162,21 +185,27 @@
 <script>
   // Data siswa yang lulus (NISN dan nama)
   const siswaLulus = [
-    { nisn: "0121296358", nama: "ABYRA AKILA ZAIN" },
-    { nisn: "0121277551", nama: "GIOVANNI DEO ARKOSHI WIJAYA" },
-    { nisn: "0121305810", nama: "GRESICA ALYA WIDYANTARI" },
+    { nisn: "1234567890", nama: "Ahmad Fauzi" },
+    { nisn: "0987654321", nama: "Siti Nurhaliza" },
+    { nisn: "1122334455", nama: "Budi Santoso" },
     { nisn: "5566778899", nama: "Dewi Lestari" },
     { nisn: "6677889900", nama: "Rina Melati" }
     // Tambah data siswa lain di sini sesuai kebutuhan
   ];
 
-  // Tampilkan daftar siswa yang lulus di halaman utama
+  const lulusSection = document.getElementById('lulusSection');
   const lulusListEl = document.getElementById('lulusList');
-  siswaLulus.forEach(siswa => {
-    const li = document.createElement('li');
-    li.textContent = `${siswa.nisn} - ${siswa.nama}`;
-    lulusListEl.appendChild(li);
-  });
+
+  // Bersihkan dan tampilkan daftar siswa yang lulus (dipanggil setelah submit)
+  function tampilkanDaftarLulus() {
+    lulusListEl.innerHTML = '';
+    siswaLulus.forEach(siswa => {
+      const li = document.createElement('li');
+      li.textContent = `${siswa.nisn} - ${siswa.nama}`;
+      lulusListEl.appendChild(li);
+    });
+    lulusSection.style.display = 'block';
+  }
 
   // Fungsi cek kelulusan
   function cekKelulusan() {
@@ -186,6 +215,7 @@
     if (input === "") {
       resultEl.textContent = "Silakan masukkan NISN terlebih dahulu.";
       resultEl.className = "result tidak";
+      lulusSection.style.display = 'none';
       return;
     }
     // Cari siswa berdasarkan NISN
@@ -194,12 +224,13 @@
     if (siswa) {
       resultEl.textContent = `Selamat, NISN ${input} (${siswa.nama}) dinyatakan LULUS! 🎉`;
       resultEl.className = "result lulus";
+      tampilkanDaftarLulus();
     } else {
       resultEl.textContent = `Maaf, NISN ${input} tidak ditemukan atau dinyatakan TIDAK LULUS.`;
       resultEl.className = "result tidak";
+      lulusSection.style.display = 'none';
     }
   }
 </script>
 </body>
 </html>
-
